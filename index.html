@@ -3,29 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 40px; background: #f4f4f9; color: #333; }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { margin-bottom: 5px; }
-        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    </style>
+    <meta name="theme-color" content="#0B0E14">
+    <meta name="description" content="Portfolio de Hugo Cabanes, étudiant en développement logiciel et futur ingénieur en systèmes embarqués et simulation aéronautique.">
+    <title>Hugo Cabanes — Portfolio | Cockpit</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Bonjour, je m'appelle Hugo CABANES</h1>
-        <p>Bienvenue sur mon portfolio de développeur / créatif !</p>
+    <header class="site-header">
+        <a class="brand" href="#accueil" aria-label="Hugo Cabanes, accueil">
+            <span class="brand-mark" aria-hidden="true">HC</span>
+            <span>HC<span class="brand-separator">/</span>PORTFOLIO</span>
+        </a>
+        <div class="system-status"><span class="status-light" aria-hidden="true"></span>SYS_STATUS: ONLINE</div>
+        <nav class="site-nav" aria-label="Navigation principale">
+            <a href="#accueil" aria-current="page">Accueil</a>
+            <a href="#plan-de-vol">Plan de Vol</a>
+            <a href="#projets">Projets</a>
+            <a href="#experience">Expérience</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-    
-    <section>
-        <h2>Mes Projets</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>Projet 1</h3>
-                <p>Courte description de votre premier projet.</p>
+
+    <main>
+        <section class="hero section-shell" id="accueil" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-line"></span> FLIGHT DECK <span class="eyebrow-dim">/ 01 — PROFIL</span></p>
+                <p class="career-status"><span class="status-light" aria-hidden="true"></span> BACHELOR DEV LOGICIEL <span class="status-arrow" aria-hidden="true">→</span> MASTER SYSTÈMES EMBARQUÉS</p>
+                <h1 id="hero-title">Hugo<br><span>Cabanes</span><span class="title-period">.</span></h1>
+                <p class="hero-lead">Du développement logiciel aux systèmes embarqués : je trace ma route vers la <strong>simulation aéronautique</strong>.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projets">Explorer les projets <span aria-hidden="true">↗</span></a>
+                    <a class="button button-secondary" href="assets/cv.pdf" download>Télécharger le CV <span aria-hidden="true">↓</span></a>
+                </div>
+                <p class="hero-coordinate"><span>DESTINATION</span> AEROSPACE_SIM <span class="coordinate-divider">/</span> <span>CAP</span> 045°</p>
             </div>
-        </div>
-    </section>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="radar">
+                    <div class="radar-crosshair radar-crosshair-horizontal"></div>
+                    <div class="radar-crosshair radar-crosshair-vertical"></div>
+                    <div class="radar-sweep"></div>
+                    <div class="radar-center"></div>
+                    <span class="radar-point radar-point-one"></span>
+                    <span class="radar-point radar-point-two"></span>
+                    <span class="radar-point radar-point-three"></span>
+                    <span class="radar-label radar-label-top">NAV / 01</span>
+                    <span class="radar-label radar-label-bottom">SYSTEM READY</span>
+                </div>
+                <div class="visual-readout"><span>ALT</span><strong>0000</strong><small>FT</small></div>
+                <div class="visual-readout visual-readout-right"><span>HDG</span><strong>045</strong><small>DEG</small></div>
+                <span class="visual-coordinate">48°51' N&nbsp; 02°21' E</span>
+            </div>
+            <a class="scroll-cue" href="#plan-de-vol"><span class="scroll-cue-line"></span> DÉFILER POUR EXPLORER</a>
+        </section>
+
+        <section class="content-section section-shell" id="plan-de-vol" aria-labelledby="flight-plan-title">
+            <div class="section-heading">
+                <p class="eyebrow">01 / TRAJECTOIRE</p>
+                <h2 id="flight-plan-title">Plan de <span>vol</span></h2>
+                <p>Un parcours construit étape par étape, du logiciel vers l'aéronautique.</p>
+            </div>
+            <div class="waypoints">
+                <article class="waypoint">
+                    <span class="waypoint-code">WP.01 <span class="waypoint-state">ACTUEL</span></span>
+                    <span class="waypoint-node" aria-hidden="true"></span>
+                    <div>
+                        <h3>Bachelor Développement Logiciel</h3>
+                        <p>Construire des bases solides en programmation, algorithmique et logique, puis apprendre à structurer et faire évoluer des logiciels.</p>
+                        <span class="waypoint-meta">POSITION ACTUELLE</span>
+                    </div>
+                </article>
+                <article class="waypoint">
+                    <span class="waypoint-code">WP.02 <span class="waypoint-state waypoint-state-next">PROCHAINE ÉTAPE</span></span>
+                    <span class="waypoint-node" aria-hidden="true"></span>
+                    <div>
+                        <h3>Master Systèmes Embarqués</h3>
+                        <p>Approfondir le développement bas niveau, l'interaction matériel/logiciel et la conception de systèmes soumis aux contraintes du temps réel.</p>
+                        <span class="waypoint-meta">CAP SUR L'EMBARQUÉ</span>
+                    </div>
+                </article>
+                <article class="waypoint">
+                    <span class="waypoint-code">WP.03 <span class="waypoint-state waypoint-state-target">CIBLE</span></span>
+                    <span class="waypoint-node" aria-hidden="true"></span>
+                    <div>
+                        <h3>Simulation aéronautique</h3>
+                        <p>Contribuer à la conception de systèmes et d'environnements de simulation pour le secteur aéronautique.</p>
+                        <span class="waypoint-meta">DESTINATION VISÉE</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section section-shell" id="projets" aria-labelledby="projects-title">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <p class="eyebrow">02 / HANGAR</p>
+                    <h2 id="projects-title">Le <span>Hangar</span></h2>
+                    <p>Fiches techniques des projets — remplace les exemples par tes réalisations et leurs liens.</p>
+                </div>
+                <span class="section-counter">PROJETS / 03</span>
+            </div>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-preview preview-sim" aria-hidden="true">
+                        <span class="preview-label">SIMULATION // 001</span>
+                        <div class="sim-orbit"><span></span></div>
+                        <span class="preview-coordinates">X: 048.8&nbsp; Y: 002.3</span>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-meta"><span>PROJET 01</span><span class="project-category">SIMULATION</span></div>
+                        <h3>Simulateur à renseigner</h3>
+                        <p><strong>Problème technique :</strong> décris le phénomène simulé, ses contraintes et la méthode choisie pour obtenir un résultat exploitable.</p>
+                        <div class="tag-list" aria-label="Stack technique à compléter"><span>Langage à préciser</span><span>Outil à préciser</span><span>Git</span></div>
+                        <div class="project-actions">
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL du dépôt GitHub">Code Source (GitHub) <span aria-hidden="true">↗</span></a>
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL de la démo ou documentation">Démo / Documentation <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-preview preview-embedded" aria-hidden="true">
+                        <span class="preview-label">EMBEDDED // 002</span>
+                        <div class="circuit-lines"><i></i><i></i><i></i><i></i><b></b></div>
+                        <span class="preview-coordinates">BUS: ACTIVE&nbsp; /&nbsp; 48 MHz</span>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-meta"><span>PROJET 02</span><span class="project-category">EMBARQUÉ</span></div>
+                        <h3>Système embarqué à renseigner</h3>
+                        <p><strong>Problème technique :</strong> précise la contrainte matérielle ou temps réel rencontrée et les compromis retenus pour y répondre.</p>
+                        <div class="tag-list" aria-label="Stack technique à compléter"><span>Langage à préciser</span><span>Plateforme à préciser</span><span>Git</span></div>
+                        <div class="project-actions">
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL du dépôt GitHub">Code Source (GitHub) <span aria-hidden="true">↗</span></a>
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL de la démo ou documentation">Démo / Documentation <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-preview preview-software" aria-hidden="true">
+                        <span class="preview-label">SOFTWARE // 003</span>
+                        <div class="code-window"><span>&gt; init_system()</span><span>&gt; loading_modules...</span><span class="code-success">&gt; status: ready_</span></div>
+                        <span class="preview-coordinates">BUILD: STABLE</span>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-meta"><span>PROJET 03</span><span class="project-category">LOGICIEL</span></div>
+                        <h3>Application à renseigner</h3>
+                        <p><strong>Problème technique :</strong> présente le besoin couvert, les cas limites traités et les choix d'architecture qui ont guidé la solution.</p>
+                        <div class="tag-list" aria-label="Stack technique à compléter"><span>Langage à préciser</span><span>Outil à préciser</span><span>Git</span></div>
+                        <div class="project-actions">
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL du dépôt GitHub">Code Source (GitHub) <span aria-hidden="true">↗</span></a>
+                            <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noreferrer" title="Remplacer par l'URL de la démo ou documentation">Démo / Documentation <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section section-shell" id="experience" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <p class="eyebrow">03 / CARNET DE VOL</p>
+                <h2 id="experience-title">Expérience en <span>mission</span></h2>
+                <p>Une première expérience de terrain, à compléter avec les détails du stage.</p>
+            </div>
+            <article class="experience-card">
+                <div class="experience-marker"><span class="status-light" aria-hidden="true"></span> MISSION LOG</div>
+                <div class="experience-content">
+                    <p class="experience-dates">POSTE <span>/</span> DÉVELOPPEUR LOGICIEL (STAGIAIRE)</p>
+                    <h3>Stage en développement</h3>
+                    <p>Entreprise et dates : à renseigner. Complète les exemples ci-dessous avec les réalisations concrètes de ton stage.</p>
+                    <div class="experience-details">
+                        <div class="experience-missions">
+                            <h4>MISSIONS TECHNIQUES</h4>
+                            <ul>
+                                <li>Développement d'une fonctionnalité — préciser le besoin et les technologies utilisées.</li>
+                                <li>Correction d'anomalies et débogage — décrire un exemple représentatif.</li>
+                                <li>Tests ou documentation — indiquer les tâches réellement effectuées.</li>
+                            </ul>
+                        </div>
+                        <div class="experience-skills">
+                            <h4>COMPÉTENCES RENFORCÉES</h4>
+                            <div class="tag-list"><span>Rigueur de développement</span><span>Débogage</span><span>Travail en équipe</span><span>Respect du cahier des charges</span></div>
+                        </div>
+                    </div>
+                </div>
+                <span class="experience-index">LOG_001</span>
+            </article>
+        </section>
+
+        <section class="content-section section-shell" id="systemes" aria-labelledby="systems-title">
+            <div class="section-heading">
+                <p class="eyebrow">04 / INSTRUMENTS</p>
+                <h2 id="systems-title">Systèmes &amp; <span>avionique</span></h2>
+                <p>Des bases en développement, des outils pour concevoir et apprendre.</p>
+            </div>
+            <div class="systems-grid">
+                <article class="system-card">
+                    <span class="system-index">SYS.01</span>
+                    <h3>Langages</h3>
+                    <div class="tag-list skill-tags" aria-label="Langages de programmation">
+                        <span>C</span><span>C++</span><span>Python</span><span>Java</span><span>JavaScript</span><span>HTML/CSS</span><span>SQL</span>
+                    </div>
+                </article>
+                <article class="system-card">
+                    <span class="system-index">SYS.02</span>
+                    <h3>Systèmes &amp; embarqué</h3>
+                    <div class="tag-list skill-tags" aria-label="Systèmes et compétences embarquées">
+                        <span>Linux</span><span>Bas niveau</span><span>Temps réel</span><span>Architecture matérielle</span>
+                    </div>
+                </article>
+                <article class="system-card">
+                    <span class="system-index">SYS.03</span>
+                    <h3>Outils &amp; environnement</h3>
+                    <div class="tag-list skill-tags" aria-label="Outils et environnement">
+                        <span>Git</span><span>GitHub</span><span>VS Code</span><span>IDE C/C++</span><span>Markdown</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-section section-shell" id="contact" aria-labelledby="contact-title">
+            <div class="contact-panel">
+                <div>
+                    <p class="eyebrow">05 / TOUR DE CONTRÔLE</p>
+                    <h2 id="contact-title">On prend <span>contact&nbsp;?</span></h2>
+                    <p>Pour une opportunité de stage ou d'alternance, ou pour échanger autour du développement et des systèmes embarqués, écris-moi.</p>
+                </div>
+                <a class="button button-primary" href="mailto:mon.email@exemple.com">Envoyer un message <span aria-hidden="true">↗</span></a>
+                <div class="contact-links">
+                    <a href="https://github.com/mon-profil" target="_blank" rel="noreferrer" title="Remplacer par l'URL de ton profil GitHub">
+                        <span class="contact-link-label"><span class="contact-symbol" aria-hidden="true">GH</span>GitHub</span><span aria-hidden="true">↗</span>
+                    </a>
+                    <a href="https://linkedin.com/in/mon-profil" target="_blank" rel="noreferrer" title="Remplacer par l'URL de ton profil LinkedIn">
+                        <span class="contact-link-label"><span class="contact-symbol" aria-hidden="true">in</span>LinkedIn</span><span aria-hidden="true">↗</span>
+                    </a>
+                    <a href="mailto:mon.email@exemple.com" title="Remplacer par ton adresse e-mail">
+                        <span class="contact-link-label"><span class="contact-symbol" aria-hidden="true">@</span>Email</span><span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+        <a class="brand footer-brand" href="#accueil"><span class="brand-mark" aria-hidden="true">HC</span><span>HUGO CABANES</span></a>
+        <p>© <span>2026</span> — PORTFOLIO / FIN DE TRANSMISSION</p>
+        <a class="back-to-top" href="#accueil">RETOUR EN HAUT ↑</a>
+    </footer>
 </body>
 </html>
