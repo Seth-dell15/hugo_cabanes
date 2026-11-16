@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    min-width: 320px;
+    min-width: 0;
     margin: 0;
     background:
         radial-gradient(ellipse at 82% 17%, rgba(56, 189, 248, 0.045), transparent 34rem),
@@ -226,6 +226,18 @@ a {
     width: 6px;
     height: 6px;
     flex-basis: 6px;
+}
+
+.career-status-amber {
+    max-width: 100%;
+    border-color: rgba(245, 158, 11, 0.55);
+    background: rgba(245, 158, 11, 0.07);
+    color: #F59E0B;
+}
+
+.career-status-amber .status-light {
+    background: #F59E0B;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.55);
 }
 
 .status-arrow {
@@ -578,6 +590,10 @@ a {
     font-size: 8px;
 }
 
+.waypoint-state-history {
+    color: var(--color-muted);
+}
+
 .waypoint-state-next {
     color: var(--color-cyan);
 }
@@ -598,11 +614,15 @@ a {
     transform: rotate(45deg);
 }
 
-.waypoint:nth-child(2) .waypoint-node {
-    border-color: var(--color-cyan);
+.waypoint:nth-child(1) .waypoint-node {
+    border-color: var(--color-border-bright);
 }
 
 .waypoint:nth-child(3) .waypoint-node {
+    border-color: var(--color-cyan);
+}
+
+.waypoint:nth-child(4) .waypoint-node {
     border-color: #F59E0B;
 }
 
@@ -648,15 +668,17 @@ a {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    background: rgba(17, 23, 32, 0.83);
+    border: 1px solid #30363D;
+    background: #161B22;
     transition: border-color 180ms ease, transform 180ms ease;
 }
 
 .project-card:hover {
     transform: translateY(-4px);
-    border-color: var(--color-border-bright);
+    border-color: var(--color-cyan);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22), 0 0 18px rgba(56, 189, 248, 0.045);
 }
 
@@ -799,6 +821,55 @@ a {
     background-color: #11131A;
 }
 
+.preview-game {
+    background-color: #15151F;
+}
+
+.game-screen {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 130px;
+    height: 74px;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    background: rgba(56, 189, 248, 0.035);
+    color: var(--color-cyan);
+    font-family: var(--font-mono);
+    font-size: 19px;
+}
+
+.game-screen::before,
+.game-screen::after {
+    position: absolute;
+    top: 50%;
+    width: 13px;
+    height: 1px;
+    background: var(--color-accent);
+    content: "";
+}
+
+.game-screen::before {
+    left: -14px;
+}
+
+.game-screen::after {
+    right: -14px;
+}
+
+.game-screen i {
+    width: 1px;
+    height: 45px;
+    background: var(--color-border-bright);
+}
+
+.game-screen b {
+    color: var(--color-accent);
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .code-window {
     position: relative;
     z-index: 1;
@@ -817,12 +888,15 @@ a {
 }
 
 .project-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 17px;
 }
 
 .project-meta {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 8px;
     margin-bottom: 13px;
@@ -830,8 +904,28 @@ a {
     font-size: 8px;
 }
 
+.project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+    text-align: right;
+}
+
 .project-category {
+    padding: 2px 6px;
+    border: 1px solid #30363D;
     color: var(--color-cyan);
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+.project-status {
+    padding: 2px 6px;
+    border: 1px solid rgba(245, 158, 11, 0.55);
+    color: #F59E0B;
+    font-size: 8px;
+    line-height: 1.6;
 }
 
 .project-card h3 {
@@ -839,7 +933,6 @@ a {
 }
 
 .project-card-body > p {
-    min-height: 72px;
     margin: 8px 0 12px;
     color: var(--color-muted);
     font-size: 13px;
@@ -867,7 +960,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 18px;
 }
 
 .project-actions .button {
@@ -903,8 +997,8 @@ a {
     grid-template-columns: 190px 1fr auto;
     gap: 22px;
     padding: 26px;
-    border: 1px solid var(--color-border);
-    background: rgba(17, 23, 32, 0.76);
+    border: 1px solid #30363D;
+    background: #161B22;
 }
 
 .experience-marker {
@@ -930,9 +1024,32 @@ a {
     color: var(--color-muted);
 }
 
+.experience-content h3 {
+    max-width: 760px;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.55;
+}
+
+.experience-company {
+    margin: 5px 0 12px !important;
+    color: var(--color-cyan) !important;
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.experience-company span {
+    padding-inline: 5px;
+    color: var(--color-muted);
+}
+
 .experience-content > p:not(.experience-dates) {
     margin: 8px 0 15px;
     color: var(--color-muted);
+}
+
+.experience-missions li strong {
+    color: var(--color-text);
+    font-weight: 600;
 }
 
 .experience-details {
@@ -991,15 +1108,16 @@ a {
 
 .systems-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
 }
 
 .system-card {
+    min-width: 0;
     min-height: 165px;
     padding: 20px;
-    border: 1px solid var(--color-border);
-    background: rgba(17, 23, 32, 0.72);
+    border: 1px solid #30363D;
+    background: #161B22;
     transition: border-color 160ms ease, background 160ms ease;
 }
 
@@ -1022,6 +1140,28 @@ a {
     margin-top: 10px;
 }
 
+.qualification-panel {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 17px 20px;
+    border: 1px solid #30363D;
+    background: #161B22;
+}
+
+.qualification-label,
+.contact-location-label {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.045em;
+}
+
+.qualification-tags span.qualification-accent {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #F59E0B;
+}
+
 .contact-section {
     padding-top: 70px;
     padding-bottom: 95px;
@@ -1033,10 +1173,10 @@ a {
     align-items: center;
     gap: 24px;
     padding: 38px;
-    border: 1px solid var(--color-border);
+    border: 1px solid #30363D;
     background:
         linear-gradient(115deg, rgba(56, 189, 248, 0.065), transparent 55%),
-        rgba(17, 23, 32, 0.82);
+        #161B22;
 }
 
 .contact-panel .eyebrow {
@@ -1055,13 +1195,32 @@ a {
 
 .contact-links {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-column: 1 / -1;
     gap: 10px;
     padding-top: 18px;
     border-top: 1px solid var(--color-border);
     color: var(--color-muted);
     font-size: 9px;
+}
+
+.contact-location {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 18px;
+}
+
+.contact-location-value {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.contact-location-value span {
+    padding-inline: 5px;
+    color: var(--color-muted);
 }
 
 .contact-links a {
@@ -1161,6 +1320,10 @@ a {
         scrollbar-width: none;
     }
 
+    .site-nav a {
+        flex-shrink: 0;
+    }
+
     .site-nav::-webkit-scrollbar {
         display: none;
     }
@@ -1192,12 +1355,16 @@ a {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .project-card:last-child {
-        grid-column: 1 / -1;
+    .systems-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .project-card:last-child .project-card-body > p {
-        min-height: 0;
+    .contact-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card:last-child {
+        grid-column: 1 / -1;
     }
 
     .experience-card {
